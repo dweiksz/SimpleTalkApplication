@@ -95,7 +95,7 @@ Business Logic - Matthew Abbott
 
 
 ## GitHub Repository Link
-GitHub Link: https://github.com/dweiksz/SimpleTalk
+GitHub Link: https://github.com/dweiksz/SimpleTalkApplication
 
 
 
