@@ -8,4 +8,5 @@ class Post {
     private String userID;
     private String userName;
     private String message;
+    private int likes;
 }
