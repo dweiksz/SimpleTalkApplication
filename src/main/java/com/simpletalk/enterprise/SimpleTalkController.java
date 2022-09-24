@@ -17,10 +17,10 @@ public class SimpleTalkController {
     @RequestMapping("/")
     public String index(Model model) {
         Post post = new Post();
-        post.setPostID(0);
-        post.setUserID("0");
+        post.setUserID(1);
+        post.setPostID("10");
         post.setUserName("TestUser0");
-        post.setMessage("This is a test post.");
+        post.setMessage("\"I love Lord of the Rings!\"");
         post.setLikes(2);
         model.addAttribute(post);
         return "startPage";
