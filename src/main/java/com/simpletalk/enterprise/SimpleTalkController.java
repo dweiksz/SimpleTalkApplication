@@ -46,7 +46,7 @@ public class SimpleTalkController {
     }
 
     @GetMapping("/post/id")
-    public ResponseEntity fetchAllPosts(@PathVariable("id") String id) {
+    public ResponseEntity fetchPostsById(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
