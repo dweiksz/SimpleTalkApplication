@@ -54,4 +54,9 @@ public class SimpleTalkController {
     public Post createPost(@RequestBody Post post){
         return post;
     }
+
+    @DeleteMapping("/post/id/")
+    public ResponseEntity deletePost(@PathVariable("id") String id) {
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
