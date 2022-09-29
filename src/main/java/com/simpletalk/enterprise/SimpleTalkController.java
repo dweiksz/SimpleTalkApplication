@@ -3,9 +3,11 @@ package com.simpletalk.enterprise;
 import com.simpletalk.enterprise.dto.Post;
 import com.simpletalk.enterprise.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class SimpleTalkController {
@@ -36,5 +38,25 @@ public class SimpleTalkController {
             return "startPage";
         }
         return "startPage";
+    }
+
+    @GetMapping("/post")
+    public ResponseEntity fetchAllPosts() {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/post/{id}")
+    public ResponseEntity fetchPostsById(@PathVariable("id") String id) {
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping(value="/post", consumes="application/json", produces="application/json")
+    public Post createPost(@RequestBody Post post){
+        return post;
+    }
+
+    @DeleteMapping("/post/{id}/")
+    public ResponseEntity deletePost(@PathVariable("id") String id) {
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
