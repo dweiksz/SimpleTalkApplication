@@ -45,7 +45,7 @@ public class SimpleTalkController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @GetMapping("/post/id")
+    @GetMapping("/post/{id}")
     public ResponseEntity fetchPostsById(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
     }
@@ -55,7 +55,7 @@ public class SimpleTalkController {
         return post;
     }
 
-    @DeleteMapping("/post/id/")
+    @DeleteMapping("/post/{id}/")
     public ResponseEntity deletePost(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
     }
