@@ -47,4 +47,8 @@ public class SimpleTalkController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @GetMapping("/post/id")
+    public ResponseEntity fetchAllPosts(@PathVariable("id") String id) {
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
