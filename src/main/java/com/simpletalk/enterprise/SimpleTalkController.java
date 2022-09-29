@@ -5,6 +5,7 @@ import com.simpletalk.enterprise.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -26,7 +27,7 @@ public class SimpleTalkController {
         return "startPage";
     }
 
-    @RequestMapping("/savePost")
+    @GetMapping("/savePost")
     public String savePost(Post post) {
         try {
             postService.save(post);
@@ -37,4 +38,6 @@ public class SimpleTalkController {
         }
         return "startPage";
     }
+
+
 }
