@@ -61,6 +61,16 @@ public class SimpleTalkController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    /**
+     * Create a new post object, given the data provided.
+     *
+     * Returns one of the following status codes:
+     * 201: successfully created a new post.
+     * 409: unable to create a post, because it already exists.
+     *
+     * @param post a JSON representation of a post object.
+     * @return the newly created post object.
+     */
     @PostMapping(value="/post", consumes="application/json", produces="application/json")
     public Post createPost(@RequestBody Post post){
         return post;
