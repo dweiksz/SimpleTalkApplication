@@ -20,7 +20,7 @@ public class SimpleTalkController {
     public String index(Model model) {
         Post post = new Post();
         post.setUserID(1);
-        post.setPostID("10");
+        post.setPostID(10);
         post.setUserName("TestUser0");
         post.setMessage("\"I love Lord of the Rings!\"");
         post.setLikes(2);

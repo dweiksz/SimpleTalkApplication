@@ -8,7 +8,7 @@ public class PostServiceStub implements IPostService {
     @Override
     public Post fetchById(int id) {
         Post post = new Post();
-        post.setPostID("10");
+        post.setPostID(10);
         post.setMessage("I love Lord of the Rings!");
         return post;
     }
