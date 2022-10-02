@@ -40,6 +40,13 @@ public class SimpleTalkController {
         return "startPage";
     }
 
+    /**
+     * Fetch all posts.
+     *
+     * Returns one of the following status codes:
+     * 200: posts found.
+     * 400: posts not found.
+     */
     @GetMapping("/post")
     public ResponseEntity fetchAllPosts() {
         return new ResponseEntity(HttpStatus.OK);
