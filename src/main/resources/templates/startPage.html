@@ -23,11 +23,17 @@
     <p th:text="${post}" />
 
     <form action="#" th:action="@{/savePost}" th:object="${post}" method="GET">
-        <label>PostID</label><input type="text" name="postID" th:field="*{postID}"/>
-        <label>UserID</label><input type="text" name="userID" th:field="*{userID}"/>
-        <label>UserName</label><input type="text" name="userName" th:field="*{userName}"/>
-        <label>Message</label><input type="text" name="message" th:field="*{message}"/>
-        <label>Likes</label><input type="text" name="likes" th:field="*{likes}"/>
+        <label>PostID</label><br>
+        <input type="text" name="postID" th:field="*{postID}"/><br>
+        <label>UserID</label><br>
+        <input type="text" name="userID" th:field="*{userID}"/><br>
+        <label>UserName</label><br>
+        <input type="text" name="userName" th:field="*{userName}"/><br>
+        <label>Message</label><br>
+        <textarea name="message" rows="5" cols="50" th:field="*{message}">
+        </textarea><br>
+        <label>Likes</label><br>
+        <input type="text" name="likes" th:field="*{likes}"/><br><br>
         <button name="button" type="submit" value="0">Post</button>
     </form>
 </body>
