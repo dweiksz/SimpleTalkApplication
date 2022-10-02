@@ -45,6 +45,17 @@ public class SimpleTalkController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    /**
+     * Fetch a post with the given id.
+     *
+     * Given the parameter id, find a post that corresponds to this unique id.
+     *
+     * Returns one of the following status codes:
+     * 200: post found
+     * 400: post not found
+     *
+     * @param id a unique identifier for this post
+     */
     @GetMapping("/post/{id}")
     public ResponseEntity fetchPostsById(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
