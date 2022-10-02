@@ -76,6 +76,17 @@ public class SimpleTalkController {
         return post;
     }
 
+    /**
+     * Delete a post with the given id.
+     *
+     * Given the parameter id, delete the post that corresponds to this unique id.
+     *
+     * Returns one of the following status codes:
+     * 200: post deleted.
+     * 404: post not found.
+     *
+     * @param id a unique identifier for this post.
+     */
     @DeleteMapping("/post/{id}/")
     public ResponseEntity deletePost(@PathVariable("id") String id) {
         return new ResponseEntity(HttpStatus.OK);
