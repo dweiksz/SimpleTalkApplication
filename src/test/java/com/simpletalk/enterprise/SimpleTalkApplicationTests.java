@@ -22,7 +22,7 @@ class SimpleTalkApplicationTests {
     void fetchPostByID_returnsLOTRpostforID10(){
         givenPostDataAreAvailable(); 
         whenSearchPostWithID10();
-        thenReturnOneLOTRpostForID10();
+        thenReturnOneLOTRPostForID10();
     }
 
     private void givenPostDataAreAvailable() {
@@ -32,7 +32,7 @@ class SimpleTalkApplicationTests {
         post = postService.fetchById(10);
     }
 
-    private void thenReturnOneLOTRpostForID10() {
+    private void thenReturnOneLOTRPostForID10() {
         String message = post.getMessage();
         assertEquals("I love Lord of the Rings!", message);
     }
