@@ -120,9 +120,9 @@ This is what we plan to export to another app.
 ---
 
 ## Scrum Roles
-DevOps/Product Owner - Jacob Macleod  
-UI Specialist/GitHub Admin - Saleem Dweik  
-Business Logic - Brennan Hand  
+DevOps/Product Owner/Business Logic - Brennan Hand  
+UI Specialist - Jacob Macleod  
+Business Logic/GitHub Admin - Saleem Dweik  
 UI Specialist - Anish Selar  
 Business Logic - Matthew Abbott  
 
