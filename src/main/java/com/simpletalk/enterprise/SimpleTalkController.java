@@ -96,6 +96,11 @@ public class SimpleTalkController {
      */
     @DeleteMapping("/post/{id}/")
     public ResponseEntity deletePost(@PathVariable("id") String id) {
-        return new ResponseEntity(HttpStatus.OK);
-    }
+        try {
+            postService.delete(Integer.parseInt(id));
+            return new ResponseEntity(HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 }

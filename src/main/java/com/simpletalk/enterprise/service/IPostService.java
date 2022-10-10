@@ -1,5 +1,7 @@
 package com.simpletalk.enterprise.service;
 
+import java.util.List;
+
 import com.simpletalk.enterprise.dto.Post;
 
 public interface IPostService {
@@ -11,4 +13,8 @@ public interface IPostService {
     Post fetchById(int id);
 
     void save(Post post);
+
+    List<Post> fetchAll();
+
+    void delete(int id) throws Exception;
 }
