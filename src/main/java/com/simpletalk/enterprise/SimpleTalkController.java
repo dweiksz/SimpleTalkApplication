@@ -9,22 +9,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @Controller
 public class SimpleTalkController {
+    Logger logger = Logger.getLogger(SimpleTalkController.class.getName());
 
     @Autowired
     private IPostService postService;
 
-    // Handles root or (/) endpoint and returns start page
+    /**
+     * Handle the / endpoint
+     * @return
+     */
     @RequestMapping("/")
     public String index(Model model) {
-        Post post = new Post();
-        post.setUserID(1);
-        post.setPostID("10");
-        post.setUserName("TestUser0");
-        post.setMessage("\"I love Lord of the Rings!\"");
-        post.setLikes(2);
-        model.addAttribute(post);
         return "startPage";
     }
 
@@ -48,8 +49,9 @@ public class SimpleTalkController {
      * 400: posts not found.
      */
     @GetMapping("/post")
-    public ResponseEntity fetchAllPosts() {
-        return new ResponseEntity(HttpStatus.OK);
+    @ResponseBody
+    public List<Post> fetchAllPosts() {
+        return postService.fetchAll();
     }
 
     /**
@@ -80,7 +82,13 @@ public class SimpleTalkController {
      */
     @PostMapping(value="/post", consumes="application/json", produces="application/json")
     public Post createPost(@RequestBody Post post){
-        return post;
+        Post newPost = null;
+        try{
+            newPost = postService.save(post);
+        } catch (Exception e){
+            logger.log(Level.WARNING, "Your post was not created.");
+        }
+        return newPost;
     }
 
     /**
