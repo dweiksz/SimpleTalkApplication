@@ -9,7 +9,7 @@ public interface IPostDAO {
 
     List<Post> fetchAll();
 
-    Post fetch(int id) throws Exception;
+    Post fetch(int id) ;
 
     Post delete(int id) throws Exception;
 }

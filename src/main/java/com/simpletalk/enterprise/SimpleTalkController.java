@@ -3,7 +3,9 @@ package com.simpletalk.enterprise;
 import com.simpletalk.enterprise.dto.Post;
 import com.simpletalk.enterprise.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,7 +53,12 @@ public class SimpleTalkController {
     @GetMapping("/post")
     @ResponseBody
     public List<Post> fetchAllPosts() {
-        return postService.fetchAll();
+        try {
+            return postService.fetchAll();
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "No Posts were fetched!");
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -66,8 +73,11 @@ public class SimpleTalkController {
      * @param id a unique identifier for this post
      */
     @GetMapping("/post/{id}")
-    public ResponseEntity fetchPostsById(@PathVariable("id") String id) {
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity fetchPostsById(@PathVariable("id") Integer id) {
+        Post foundPost = postService.fetchById(id);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity(foundPost, headers, HttpStatus.OK);
     }
 
     /**
@@ -103,7 +113,12 @@ public class SimpleTalkController {
      * @param id a unique identifier for this post.
      */
     @DeleteMapping("/post/{id}/")
-    public ResponseEntity deletePost(@PathVariable("id") String id) {
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity deletePost(@PathVariable("id") Integer id) {
+        try {
+            postService.delete(id);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

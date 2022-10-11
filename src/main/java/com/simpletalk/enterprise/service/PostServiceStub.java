@@ -28,7 +28,7 @@ public class PostServiceStub implements IPostService {
     }
 
     @Override
-    public Post fetchById(int id) throws Exception{
+    public Post fetchById(int id) {
         Post foundPost = postDAO.fetch(id);
         return foundPost;
     }
@@ -48,11 +48,12 @@ public class PostServiceStub implements IPostService {
      * @return a collection of all posts.
      */
     @Override
-    public List<Post> fetchAll() {
+    public List<Post> fetchAll() throws Exception {
         return postDAO.fetchAll();
     }
 
 
+    @Override
     public void delete(int id) throws  Exception{
         postDAO.delete(id);
     }
