@@ -4,7 +4,10 @@ import com.simpletalk.enterprise.dto.Post;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**
  * <p>
  *     public class that implements methods from the IPostDAO interface
@@ -12,15 +15,16 @@ import java.util.List;
  */
 @Repository
 public class PostDAOStub implements IPostDAO {
-    List<Post> allPosts = new ArrayList<Post>();
+    Map<Integer, Post> allPosts = new HashMap<>();
 
     /**
      * @param post
      * @return
      */
     @Override
-    public Post save(Post post) {
-        allPosts.add(post);
+    public Post save(Post post) throws Exception{
+        Integer postID = (post.getPostID());
+        allPosts.put(postID, post);
         return post;
     }
 
@@ -29,7 +33,26 @@ public class PostDAOStub implements IPostDAO {
      */
     @Override
     public List<Post> fetchAll() {
-        return allPosts;
+        List<Post> returnPosts = new ArrayList<>(allPosts.values());
+        return returnPosts;
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public Post fetch(int id) {
+        return allPosts.get(id);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public Post delete(int id) {
+        return allPosts.remove(id);
     }
 }
 

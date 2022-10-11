@@ -28,12 +28,9 @@ public class PostServiceStub implements IPostService {
     }
 
     @Override
-    public Post fetchById(int id) {
-        Post post = new Post();
-        post.setMessage("I love Lord of the Rings!");
-        post.setPostID(10);
-        post.setUserID(100);
-        return post;
+    public Post fetchById(int id) throws Exception{
+        Post foundPost = postDAO.fetch(id);
+        return foundPost;
     }
     /**
      * Save a new Post
@@ -42,7 +39,7 @@ public class PostServiceStub implements IPostService {
      * @return
      */
     @Override
-    public Post save(Post post) {
+    public Post save(Post post) throws Exception {
         return postDAO.save(post);
     }
 
@@ -53,5 +50,10 @@ public class PostServiceStub implements IPostService {
     @Override
     public List<Post> fetchAll() {
         return postDAO.fetchAll();
+    }
+
+
+    public void delete(int id) throws  Exception{
+        postDAO.delete(id);
     }
 }
