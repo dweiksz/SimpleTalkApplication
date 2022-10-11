@@ -30,7 +30,7 @@ public class PostDAOStub implements IPostDAO {
     }
 
     @Override
-    public void delete(int id) {
-      allPosts.remove(id);
+    public Post delete(int id) {
+      return allPosts.remove(id);
     }
 }

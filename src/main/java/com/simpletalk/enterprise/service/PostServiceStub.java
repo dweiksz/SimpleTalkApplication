@@ -1,5 +1,6 @@
 package com.simpletalk.enterprise.service;
 
+import com.simpletalk.enterprise.dao.IPostDAO;
 import com.simpletalk.enterprise.dto.Post;
 import org.springframework.stereotype.Component;
 
