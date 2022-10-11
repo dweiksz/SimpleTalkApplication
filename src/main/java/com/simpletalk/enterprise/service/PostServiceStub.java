@@ -10,7 +10,7 @@ import java.util.List;
 public class PostServiceStub implements IPostService {
 
     public PostServiceStub(IPostDAO postDAO) {
-        this.postDAO = postDao;
+        this.postDAO = postDAO;
     }
 
     @Override
