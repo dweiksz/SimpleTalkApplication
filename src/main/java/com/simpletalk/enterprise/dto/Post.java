@@ -5,7 +5,7 @@ import lombok.Data;
 public @Data
 class Post {
     private int userID;
-    private String postID;
+    private int postID;
     private String userName;
     private String message;
     private int likes;
