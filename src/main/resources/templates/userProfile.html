@@ -12,15 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Simple Talk</h1>
-<br />
-<form action="#"  method="GET">
-    <label for="searchTerm">Search</label><input type="text" name="searchTerm" id="searchTerm"/>
-    <button name="submit" type="submit" value="0">Search</button>
-</form>
-<br />
-<h3>Name</h3>
-<p>Subscriber count</p>
-<p>Posts</p>
-</form>
-</body>
+    <div th:replace="fragments/topnav :: navbar"></div>
+    <br />
+    <h3>Name</h3>
+    <p>Subscriber count</p>
+    <p>Posts</p>
+    </form>
+    </body>
+</html>
