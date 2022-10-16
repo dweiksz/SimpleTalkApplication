@@ -32,9 +32,7 @@ public class SimpleTalkController {
     }
 
     @RequestMapping("/explore")
-    public String explore() {
-        return "explorePage";
-    }
+    public String explore() { return "explorePage"; }
 
     @RequestMapping("/makePost")
     public String makePost() {
@@ -45,6 +43,12 @@ public class SimpleTalkController {
     public String profile() {
         return "userProfile";
     }
+
+    @RequestMapping("/signup")
+    public String signup() { return "userSignup"; }
+
+    @RequestMapping("/login")
+    public String login() { return "userLogin"; }
 
     @RequestMapping("/savePost")
     public String savePost(Post post) {
