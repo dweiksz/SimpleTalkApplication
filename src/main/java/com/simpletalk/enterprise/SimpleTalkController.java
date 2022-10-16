@@ -31,6 +31,25 @@ public class SimpleTalkController {
         return "startPage";
     }
 
+    @RequestMapping("/explore")
+    public String explore() { return "explorePage"; }
+
+    @RequestMapping("/makePost")
+    public String makePost() {
+        return "makePost";
+    }
+
+    @RequestMapping("/profile")
+    public String profile() {
+        return "userProfile";
+    }
+
+    @RequestMapping("/signup")
+    public String signup() { return "userSignup"; }
+
+    @RequestMapping("/login")
+    public String login() { return "userLogin"; }
+
     @RequestMapping("/savePost")
     public String savePost(Post post) {
         try {
