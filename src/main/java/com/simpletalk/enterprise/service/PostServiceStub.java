@@ -2,6 +2,8 @@ package com.simpletalk.enterprise.service;
 
 import com.simpletalk.enterprise.dao.IPostDAO;
 import com.simpletalk.enterprise.dto.Post;
+import com.simpletalk.enterprise.dto.Thread;
+import com.simpletalk.enterprise.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,7 @@ public class PostServiceStub implements IPostService {
         Post foundPost = postDAO.fetch(id);
         return foundPost;
     }
+
     /**
      * Save a new Post
      *
