@@ -31,17 +31,17 @@ public class SimpleTalkController {
         return "startPage";
     }
 
-    @RequestMapping("/savePost")
-    public String savePost(Post post) {
-        try {
-            postService.save(post);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return "startPage";
-        }
-        return "startPage";
-    }
+//    @RequestMapping("/savePost")
+//    public String savePost(Post post) {
+//        try {
+//            postService.save(post);
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//            return "startPage";
+//        }
+//        return "startPage";
+//    }
 
     /**
      * Fetch all posts.
