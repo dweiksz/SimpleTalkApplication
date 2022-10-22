@@ -1,7 +1,10 @@
 package com.simpletalk.enterprise.service;
 
 import com.simpletalk.enterprise.dto.Post;
+import com.simpletalk.enterprise.dto.Thread;
+import com.simpletalk.enterprise.dto.User;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface IPostService {
@@ -11,7 +14,6 @@ public interface IPostService {
      * @return the matching post, or null if no matches are found.
      */
     Post fetchById(int id) ;
-
     /**
      * Save a new Journal Entry
      *
@@ -24,7 +26,7 @@ public interface IPostService {
      * Return all posts.
      * @return a collection of all posts.
      */
-    List<Post> fetchAll() throws Exception;
 
+    List<Post> fetchAll() throws Exception;
     void delete(int id) throws  Exception;
 }
