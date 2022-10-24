@@ -121,6 +121,27 @@ public class SimpleTalkController {
     }
 
     /**
+     * Create a new thread object, given the data provided.
+     *
+     * Returns one of the following status codes:
+     * 201: successfully created a new thread.
+     * 409: unable to create a thread, because it already exists.
+     *
+     * @param thread a JSON representation of a thread object.
+     * @return the newly created thread object.
+     */
+    @PostMapping(value="/thread", consumes="application/json", produces="application/json")
+    public Thread createThread(@RequestBody Thread thread){
+        Thread newThread = null;
+        try{
+            newThread = postService.save(thread);
+        } catch (Exception e){
+            logger.log(Level.WARNING, "Your thread was not created.");
+        }
+        return newThread;
+    }
+
+    /**
      * Delete a post with the given id.
      *
      * Given the parameter id, delete the post that corresponds to this unique id.
