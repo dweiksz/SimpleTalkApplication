@@ -27,4 +27,27 @@ public interface IPostService {
     List<Post> fetchAll() throws Exception;
 
     void delete(int id) throws  Exception;
+
+    /**
+     * Fetch a post with a given ID.
+     * @param id is a unique identifier for a thread.
+     * @return the matching thread, or null if no matches are found.
+     */
+    Thread threadfetchById(int id) ;
+
+    /**
+     * Save a new Thread
+     *
+     * @param thread the entry to save.
+     * @return
+     */
+    Thread threadsave(Thread thread) throws Exception;
+
+    /**
+     * Return all threads.
+     * @return a collection of all posts.
+     */
+    List<Thread> threadfetchAll() throws Exception;
+
+    void threaddelete(int id) throws  Exception;
 }
