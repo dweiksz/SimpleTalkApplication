@@ -27,7 +27,7 @@ public class SimpleTalkController {
      * @return
      */
     @RequestMapping("/")
-    public String index(Model model) {
+    public String index() {
         return "startPage";
     }
 
