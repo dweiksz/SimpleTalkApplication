@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * <p>
- *     public class that implements methods from the IPostDAO interface
+ * public class that implements methods from the IPostDAO interface
  * </p>
  */
 @Repository
@@ -22,7 +22,7 @@ public class PostDAOStub implements IPostDAO {
      * @return
      */
     @Override
-    public Post save(Post post) throws Exception{
+    public Post save(Post post) throws Exception {
         Integer postID = (post.getPostID());
         allPosts.put(postID, post);
         return post;
