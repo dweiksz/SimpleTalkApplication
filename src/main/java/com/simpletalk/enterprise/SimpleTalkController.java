@@ -24,15 +24,23 @@ public class SimpleTalkController {
 
     /**
      * Handle the / endpoint
+     *
      * @return
      */
     @RequestMapping("/")
     public String index(Model model) {
+        Post post = new Post();
+        post.setMessage("new random message");
+        post.setPostID(37);
+        post.setLikes(50);
+        model.addAttribute(post);
         return "startPage";
     }
 
     @RequestMapping("/explore")
-    public String explore() { return "explorePage"; }
+    public String explore() {
+        return "explorePage";
+    }
 
     @RequestMapping("/makePost")
     public String makePost() {
@@ -45,17 +53,20 @@ public class SimpleTalkController {
     }
 
     @RequestMapping("/signup")
-    public String signup() { return "userSignup"; }
+    public String signup() {
+        return "userSignup";
+    }
 
     @RequestMapping("/login")
-    public String login() { return "userLogin"; }
+    public String login() {
+        return "userLogin";
+    }
 
     @RequestMapping("/savePost")
     public String savePost(Post post) {
         try {
             postService.save(post);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "startPage";
         }
@@ -64,7 +75,7 @@ public class SimpleTalkController {
 
     /**
      * Fetch all posts.
-     *
+     * <p>
      * Returns one of the following status codes:
      * 200: posts found.
      * 400: posts not found.
@@ -82,9 +93,9 @@ public class SimpleTalkController {
 
     /**
      * Fetch a post with the given id.
-     *
+     * <p>
      * Given the parameter id, find a post that corresponds to this unique id.
-     *
+     * <p>
      * Returns one of the following status codes:
      * 200: post found
      * 400: post not found
@@ -101,7 +112,7 @@ public class SimpleTalkController {
 
     /**
      * Create a new post object, given the data provided.
-     *
+     * <p>
      * Returns one of the following status codes:
      * 201: successfully created a new post.
      * 409: unable to create a post, because it already exists.
@@ -109,12 +120,12 @@ public class SimpleTalkController {
      * @param post a JSON representation of a post object.
      * @return the newly created post object.
      */
-    @PostMapping(value="/post", consumes="application/json", produces="application/json")
-    public Post createPost(@RequestBody Post post){
+    @PostMapping(value = "/post", consumes = "application/json", produces = "application/json")
+    public Post createPost(@RequestBody Post post) {
         Post newPost = null;
-        try{
+        try {
             newPost = postService.save(post);
-        } catch (Exception e){
+        } catch (Exception e) {
             logger.log(Level.WARNING, "Your post was not created.");
         }
         return newPost;
@@ -122,9 +133,9 @@ public class SimpleTalkController {
 
     /**
      * Delete a post with the given id.
-     *
+     * <p>
      * Given the parameter id, delete the post that corresponds to this unique id.
-     *
+     * <p>
      * Returns one of the following status codes:
      * 200: post deleted.
      * 404: post not found.
