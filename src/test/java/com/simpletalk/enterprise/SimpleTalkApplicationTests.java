@@ -11,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
@@ -47,7 +46,7 @@ class SimpleTalkApplicationTests {
         LOTR.setPostID(10);
         LOTR.setMessage("I love Lord of the Rings!");
         try {
-            Mockito.when(postDAO.fetch(10)).thenReturn((LOTR));
+            Mockito.when(postDAO.fetchByID(10)).thenReturn((LOTR));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
