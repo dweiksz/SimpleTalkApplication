@@ -11,5 +11,5 @@ public interface IPostDAO {
 
     Post fetchByID(int id) ;
 
-    Post delete(int id) throws Exception;
+    void delete(int id) throws Exception;
 }
