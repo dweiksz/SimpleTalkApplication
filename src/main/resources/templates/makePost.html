@@ -14,20 +14,43 @@
         body {
             text-align: center;
         }
+        .card {
+            width: 300px;
+            margin:0 auto;
+            margin-bottom: 10px;
+        }
+        textarea {
+            resize: none;
+        }
     </style>
 </head>
 <body>
     <div th:replace="fragments/topnav :: navbar"></div>
-    <label for="postBody">Post:</label>
-    <form action="#"  method="POST">
-        <textarea id="postBody" name="postBody" rows="5" cols="100" placeholder="Start typing"></textarea>
-        <p>Text Color</p>
-        <input type="color"></input>
-        <p>Background Color</p>
-        <input type="color"></input>
-        <p>Border Color</p>
-        <input type="color"></input>
-        <p>Preview post area</p>
-        <button name="submitPost" type="submitPost" value="0">Post</button>
-    </form>
-</body>
+    <br />
+    <h2>Make a post</h2>
+    <br />
+    <textarea id="postBody" name="postBody" maxlength="132" rows="3" cols="70" placeholder="Start typing"></textarea>
+    <br /><br />
+    <p>Text Color</p>
+    <input type="color" id="textColor" value="#000000"><br /><br />
+    <p>Background Color</p>
+    <input type="color" id="bgColor" value="#ffffff"><br /><br />
+    <br />
+    <button id="previewPost" name="previewPost">Preview</button>
+    <br />
+    <br />
+    <div id="previewSection" class="previewSection"></div>
+    <br />
+    <button name="submitPost" type="submit" value="0">Post</button>
+    </body>
+    <script>
+        document.getElementById("previewPost").onclick = function() {
+            let textColor = document.getElementById("textColor").value;
+            let bgColor = document.getElementById("bgColor").value;
+            let postContent = document.getElementById('postBody').value;
+            let username = "TestUsername";
+            let previewCode = "<div class='card border-secondary mb-3' style='width: 500px;'><div class='card-body text-secondary' style='background-color: "+bgColor+"'><p class='card-text' style='color: "+textColor+"; text-align: left;'>"+postContent+"</p><h6 class='card-text' style='color: "+textColor+"; text-align: left;'>"+username+"</h6></div></div>";
+            document.getElementById('previewSection').innerHTML = previewCode;
+        }
+    </script>
+</html>
