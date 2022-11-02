@@ -55,9 +55,29 @@ public class PostServiceStub implements IPostService {
         return postDAO.fetchAll();
     }
 
-
     @Override
     public void delete(int id) throws  Exception{
         postDAO.delete(id);
     }
+
+    @Override
+    public Thread threadFetchById(int id) {
+        return null;
+    }
+
+    @Override
+    public Thread threadSave(Thread thread) throws Exception {
+        return null;
+    }
+
+    @Override
+    public List<Thread> threadFetchAll() throws Exception {
+        return null;
+    }
+
+    @Override
+    public void threadDelete(int id) throws Exception {
+
+    }
+
 }
