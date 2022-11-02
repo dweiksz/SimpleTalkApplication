@@ -1,6 +1,7 @@
 package com.simpletalk.enterprise;
 
 import com.simpletalk.enterprise.dto.Post;
+import com.simpletalk.enterprise.dto.Thread;
 import com.simpletalk.enterprise.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -31,17 +32,36 @@ public class SimpleTalkController {
         return "startPage";
     }
 
-//    @RequestMapping("/savePost")
-//    public String savePost(Post post) {
-//        try {
-//            postService.save(post);
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//            return "startPage";
-//        }
-//        return "startPage";
-//    }
+    @RequestMapping("/explore")
+    public String explore() { return "explorePage"; }
+
+    @RequestMapping("/makePost")
+    public String makePost() {
+        return "makePost";
+    }
+
+    @RequestMapping("/profile")
+    public String profile() {
+        return "userProfile";
+    }
+
+    @RequestMapping("/signup")
+    public String signup() { return "userSignup"; }
+
+    @RequestMapping("/login")
+    public String login() { return "userLogin"; }
+
+    @RequestMapping("/savePost")
+    public String savePost(Post post) {
+        try {
+            postService.save(post);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return "startPage";
+        }
+        return "startPage";
+    }
 
     /**
      * Fetch all posts.
@@ -99,6 +119,27 @@ public class SimpleTalkController {
             logger.log(Level.WARNING, "Your post was not created.");
         }
         return newPost;
+    }
+
+    /**
+     * Create a new thread object, given the data provided.
+     *
+     * Returns one of the following status codes:
+     * 201: successfully created a new thread.
+     * 409: unable to create a thread, because it already exists.
+     *
+     * @param thread a JSON representation of a thread object.
+     * @return the newly created thread object.
+     */
+    @PostMapping (value="/thread", consumes="application/json", produces="application/json")
+    public Thread createThread(@RequestBody Thread thread){
+        Thread newThread = null;
+        try{
+            newThread = postService.threadSave(thread);
+        } catch (Exception e){
+            logger.log(Level.WARNING, "Your thread was not created.");
+        }
+        return newThread;
     }
 
     /**
