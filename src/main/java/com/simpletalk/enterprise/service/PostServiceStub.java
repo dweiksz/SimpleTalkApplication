@@ -7,11 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * <p>
- *     public class that implements methods from the IPostService interface and sends them to the DAO package
- * </p>
- */
 @Service
 public class PostServiceStub implements IPostService {
 
@@ -29,24 +24,15 @@ public class PostServiceStub implements IPostService {
 
     @Override
     public Post fetchById(int id) {
-        Post foundPost = postDAO.fetch(id);
+        Post foundPost = postDAO.fetchByID(id);
         return foundPost;
     }
-    /**
-     * Save a new Post
-     *
-     * @param post to save.
-     * @return
-     */
+
     @Override
     public Post save(Post post) throws Exception {
         return postDAO.save(post);
     }
 
-    /**
-     * Return all Posts
-     * @return a collection of all posts.
-     */
     @Override
     public List<Post> fetchAll() throws Exception {
         return postDAO.fetchAll();
