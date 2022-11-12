@@ -42,7 +42,6 @@
     <div id="previewSection" class="previewSection"></div>
     <br />
     <button name="submitPost" type="submit" value="0">Post</button>
-    </body>
     <script>
         document.getElementById("previewPost").onclick = function() {
             let textColor = document.getElementById("textColor").value;
@@ -53,4 +52,27 @@
             document.getElementById('previewSection').innerHTML = previewCode;
         }
     </script>
+    <div id="cookiesBox"></div>
+    <script>
+        function saveData(fileName, info) {
+            localStorage.setItem(fileName, info);
+        }
+
+        function getData(fileName) {
+            let data = localStorage.getItem(fileName);
+            return data;
+        }
+
+        function acceptCookies() {
+            saveData("cookiesAccepted", true);
+            document.getElementById("cookiesBox").innerHTML = "";
+        }
+
+        let cookiesAccepted = getData("cookiesAccepted");
+
+        if (cookiesAccepted == null) {
+            document.getElementById("cookiesBox").innerHTML = "<div style='position: fixed; height: 130px; background-color: #9a9a9a;  bottom: 0px; left: 0px; right: 0px; margin-bottom: 0px;'><p style='margin-top: 10px;'>We use cookies to keep track of user information, such as being logged in.</p><p>Click accept if you understand and agree to use cookies on this site.</p><input type='button' value='Accept' onclick='acceptCookies()'></div>";
+        }
+    </script>
+</body>
 </html>
