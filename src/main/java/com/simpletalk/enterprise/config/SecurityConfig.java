@@ -2,7 +2,6 @@ package com.simpletalk.enterprise.config;
 
 
 import com.nimbusds.jose.JOSEException;
-import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 
@@ -73,10 +72,11 @@ public class SecurityConfig {
                         .permitAll()
                         .antMatchers(HttpMethod.GET, "/api/posts/")
                         .permitAll()
+                        .antMatchers(HttpMethod.GET, "/api/posts/**")
+                        .permitAll()
                         .anyRequest()
                         .authenticated()
                 )
-                .authenticationProvider(authenticationProvider())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .exceptionHandling(exceptions -> exceptions

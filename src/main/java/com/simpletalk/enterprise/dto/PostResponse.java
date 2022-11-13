@@ -14,5 +14,6 @@ public class PostResponse {
     private String description;
     private String userName;
     private String threadName;
+    private String duration;
 }
 
