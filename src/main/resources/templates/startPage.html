@@ -41,6 +41,23 @@
         if (cookiesAccepted == null) {
             document.getElementById("cookiesBox").innerHTML = "<div style='position: fixed; height: 130px; background-color: #9a9a9a;  bottom: 0px; left: 0px; right: 0px; margin-bottom: 0px;'><p style='margin-top: 10px;'>We use cookies to keep track of user information, such as being logged in.</p><p>Click accept if you understand and agree to use cookies on this site.</p><input type='button' value='Accept' onclick='acceptCookies()'></div>";
         }
+
+        function addNavbar() {
+            let mid = "";
+
+            let loggedIn = getData("loggedIn");
+
+            if (loggedIn == "true") {
+                mid = "<ul class='navbar-nav mr-auto mt-2 mt-lg-0'><li class='nav-item'><a class='nav-link' href='/explore'>Explore</a></li><li class='nav-item'><a class='nav-link'  href='/makePost'>Post</a></li><li class='nav-item'><a class='nav-link' href='/profile'>Profile</a></li></ul>";
+            } else if (loggedIn == "false" || loggedIn == null) {
+                mid = "<ul class='navbar-nav mr-auto mt-2 mt-lg-0'><li class='nav-item'><a class='nav-link' href='/login'>Login</a></li><li class='nav-item'><a class='nav-link' href='/signup'>Sign Up</a></li></ul>"
+            }
+
+            document.getElementById("top").innerHTML = "<nav class='navbar navbar-expand-lg navbar-light bg-light justify-content-between'><a class='navbar-brand' href='/'>Simple Talk</a>" + mid +
+                "<form class='form-inline'><input class='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search'><button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Search</button></form></nav>";
+        }
+
+        window.onload = addNavbar();
     </script>
 </body>
 </html>
