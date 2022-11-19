@@ -30,13 +30,12 @@ public class PostService {
     private final PostRepository postRepository;
     private final ThreadRepository threadRepository;
     private final UserRepository userRepository;
-    private final AuthService authService;
     private final PostMapper postMapper;
 
     public void save(PostRequest postRequest) {
         Thread thread = threadRepository.findByName(postRequest.getThreadName())
                 .orElseThrow(() -> new ThreadNotFoundException(postRequest.getThreadName()));
-        postRepository.save(postMapper.map(postRequest, thread, authService.getCurrentUser()));
+        postRepository.save(postMapper.map(postRequest, thread));
     }
 
     @Transactional(readOnly = true)
