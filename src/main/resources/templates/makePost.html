@@ -29,15 +29,15 @@
     <br />
     <h2>Make a post</h2>
     <br />
-    <form>
-    <textarea id="postBody" name="postBody" maxlength="132" rows="3" cols="70" placeholder="Start typing"></textarea>
-    <br /><br />
-    <p>Text Color</p>
-    <input type="color" id="textColor" value="#000000"><br /><br />
-    <p>Background Color</p>
-    <input type="color" id="bgColor" value="#ffffff"><br /><br />
-    <br />
-    <button name="submitPost" type="submit" value="0">Post</button>
+    <form action="#" th:action="@{/savePost}" th:object="${post}" method="POST">
+        <textarea id="postBody" name="postBody" maxlength="132" rows="3" cols="70" placeholder="Start typing"></textarea>
+        <br /><br />
+        <p>Text Color</p>
+        <input type="color" id="textColor" value="#000000"><br /><br />
+        <p>Background Color</p>
+        <input type="color" id="bgColor" value="#ffffff"><br /><br />
+        <br />
+        <button name="submitPost" type="submit" value="0">Post</button>
     </form>
     <br />
     <button id="previewPost" name="previewPost">Preview</button>
