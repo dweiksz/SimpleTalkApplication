@@ -29,6 +29,7 @@
     <br />
     <h2>Make a post</h2>
     <br />
+    <form>
     <textarea id="postBody" name="postBody" maxlength="132" rows="3" cols="70" placeholder="Start typing"></textarea>
     <br /><br />
     <p>Text Color</p>
@@ -36,12 +37,13 @@
     <p>Background Color</p>
     <input type="color" id="bgColor" value="#ffffff"><br /><br />
     <br />
+    <button name="submitPost" type="submit" value="0">Post</button>
+    </form>
+    <br />
     <button id="previewPost" name="previewPost">Preview</button>
     <br />
     <br />
     <div id="previewSection" class="previewSection"></div>
-    <br />
-    <button name="submitPost" type="submit" value="0">Post</button>
     <script>
         document.getElementById("previewPost").onclick = function() {
             let textColor = document.getElementById("textColor").value;
