@@ -29,9 +29,9 @@ public class PostServiceStub implements IPostService {
 
     @Override
     public Post fetchById(int id) {
-        Post foundPost = postDAO.fetch(id);
-        return foundPost;
+        return postDAO.fetch(id);
     }
+
     /**
      * Save a new Post
      *

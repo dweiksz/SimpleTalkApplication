@@ -27,7 +27,7 @@ public class SimpleTalkController {
      * @return
      */
     @RequestMapping("/")
-    public String index(Model model) {
+    public String index() {
         return "startPage";
     }
 
@@ -93,10 +93,15 @@ public class SimpleTalkController {
      */
     @GetMapping("/post/{id}")
     public ResponseEntity fetchPostsById(@PathVariable("id") Integer id) {
-        Post foundPost = postService.fetchById(id);
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        return new ResponseEntity(foundPost, headers, HttpStatus.OK);
+        try {
+            Post foundPost = postService.fetchById(id);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            return new ResponseEntity(foundPost, headers, HttpStatus.OK);
+        } catch (Exception e){
+            logger.log(Level.WARNING, "Post was not found.");
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**
